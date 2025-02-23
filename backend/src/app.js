@@ -33,7 +33,7 @@ app.use("/api", userRouter);
 app.use("/api", jobRouter);
 
 app.get("/", (req, res) => {
-  res, send("welcome to JobPortal Backend Assignment");
+  res.send("welcome to JobPortal Backend Assignment");
 });
 
 app.use(errorHandler);
