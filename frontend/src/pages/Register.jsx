@@ -39,9 +39,7 @@ const Register = () => {
     <div className="flex flex-col md:flex-row h-screen w-full">
       {/* Left Section - Register Form */}
       <div className="w-full md:min-w-3xl flex flex-col flex-1 justify-center text-center md:text-left px-6 lg:px-24">
-        <h2 className="text-3xl font-semibold mb-1">
-          Create an account
-        </h2>
+        <h2 className="text-3xl font-semibold mb-1">Create an account</h2>
         <p className="text-gray-500 text-md md:text-md mb-6">
           Your personal job finder is here
         </p>
@@ -132,7 +130,7 @@ const Register = () => {
       </div>
 
       {/* Right Section - Image with Overlay Text */}
-      <div className="w-full relative md:w-2xl bg-amber-200 h-full hidden md:block">
+      <div className="w-full relative md:w-2xl  h-full hidden md:block">
         <SideImage />
       </div>
       <ToastContainer />

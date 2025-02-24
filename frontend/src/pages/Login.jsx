@@ -104,7 +104,7 @@ const Login = () => {
       </div>
 
       {/* Image Section (Hidden in Mobile View) */}
-      <div className="w-full relative md:w-2xl bg-amber-200 h-full hidden md:block">
+      <div className="w-full relative md:w-2xl  h-full hidden md:block">
         <SideImage />
       </div>
 
