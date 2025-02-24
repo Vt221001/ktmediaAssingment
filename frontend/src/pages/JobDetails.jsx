@@ -5,12 +5,16 @@ import { GoDotFill } from "react-icons/go";
 import { PiMoneyFill } from "react-icons/pi";
 import { FaCalendar } from "react-icons/fa6";
 import Button from "../components/Ui/Button";
+import { useAuth } from "../context/Authcontext";
 
 const JobDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { userId } = useAuth();
   const [jobData, setJobData] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  console.log("edit page", userId);
 
   // Function to capitalize first letter of each word
   const capitalizeWords = (str) => {
@@ -67,9 +71,15 @@ const JobDetails = () => {
           <h1 className="text-4xl font-semibold text-gray-900 mt-2">
             {jobData?.jobPosition}
           </h1>
-          <Button onClick={() => navigate(`/edit-job/${id}`)} className={`bg-red-400 hover:bg-red-500 px-4 py-1 px-8 h-8`}>
-            Edit job
-          </Button>
+
+          {userId && (
+            <Button
+              onClick={() => navigate(`/edit-job/${id}`)}
+              className="bg-red-400 hover:bg-red-500 px-4 py-1 px-8 h-8"
+            >
+              Edit job
+            </Button>
+          )}
         </div>
         <p className="text-red-500  text-sm font-semibold mt-2">
           {jobData?.companyLocation}
@@ -80,9 +90,7 @@ const JobDetails = () => {
             <p className="text-gray-400 justify-start items-center gap-2 flex  mt-2">
               <PiMoneyFill /> Stipend
             </p>
-            <p className="text-gray-700">
-              Rs {jobData?.monthlySalary}/month
-            </p>
+            <p className="text-gray-700">Rs {jobData?.monthlySalary}/month</p>
           </div>
           <div>
             <p className="text-gray-400 justify-start items-center gap-2 flex mt-2">

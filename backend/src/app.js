@@ -19,7 +19,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://kvt.vedanshtiwari.tech", ["*"]],
+    origin: ["https://kvt.vedanshtiwari.tech", "http://localhost:5173", ["*"]],
     credentials: true,
   })
 );
