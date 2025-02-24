@@ -19,7 +19,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://kvtapi.vedanshtiwari.tech", ["*"]],
+    origin: ["https://kvt.vedanshtiwari.tech", ["*"]],
     credentials: true,
   })
 );
