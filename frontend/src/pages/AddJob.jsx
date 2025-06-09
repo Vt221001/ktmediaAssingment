@@ -66,7 +66,8 @@ const AddJob = () => {
     setDataToFields();
   }, [id]);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data, e) => {
+    if (e?.nativeEvent?.submitter?.name === "cancel") return;
     console.log("user id", id);
     console.log("Before jobData:", data);
     const jobData = { ...data, skillRequired: skills };
@@ -211,6 +212,7 @@ const AddJob = () => {
               bgColor="border-2 text-gray-400 border-gray-300 hover:bg-gray-200"
               textColor="text-black"
               type="button"
+              name="cancel"
               onClick={() => navigate(-1)}
             >
               Cancel
