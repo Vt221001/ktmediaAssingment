@@ -9,12 +9,15 @@ import { useAuth } from "../context/Authcontext";
 import { set } from "lodash";
 import { MdOutlineClose } from "react-icons/md";
 import SideImage from "../components/Login/Register/SideImage";
+import { useNavigate } from "react-router-dom";
 
 const AddJob = () => {
   const { register, handleSubmit, reset } = useForm();
   const [skills, setSkills] = useState([]);
   const [skillInput, setSkillInput] = useState("");
   const { id } = useParams();
+
+  const navigate = useNavigate();
   const { accessToken } = useAuth();
 
   const addSkill = (e) => {
@@ -208,7 +211,7 @@ const AddJob = () => {
               bgColor="border-2 text-gray-400 border-gray-300 hover:bg-gray-200"
               textColor="text-black"
               type="button"
-              onClick={() => reset()}
+              onClick={() => navigate(-1)}
             >
               Cancel
             </Button>
@@ -219,7 +222,11 @@ const AddJob = () => {
         </form>
       </div>
       <div className="w-full relative md:w-2xl h-full hidden md:block">
-        <SideImage img={Job} height={"h-[125vh]"} title={"Recruiter add job details here"} />
+        <SideImage
+          img={Job}
+          height={"h-[125vh]"}
+          title={"Recruiter add job details here"}
+        />
       </div>
     </div>
   );
